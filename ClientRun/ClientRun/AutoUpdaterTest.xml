@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<item>
+    <version>2.1.1.0</version>
+    <url>https://github.com/robyle/ClientAutoUpdater/releases/download/v2.1.1/ClientRun.zip</url>
+    <changelog>这里是更新说明内容: 测试手动更新包 V2</changelog>
+    <mandatory>false</mandatory>
+</item>

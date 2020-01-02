@@ -10,9 +10,9 @@ using AutoUpdaterDotNET;
 
 namespace ClientRun
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
         }
@@ -21,10 +21,10 @@ namespace ClientRun
         {
             AutoUpdater.CheckForUpdateEvent += AutoUpdaterOnCheckForUpdateEvent;
         }
-
+        public string AutoUpdaterUrl = "";
         private void button1_Click(object sender, EventArgs e)
         {
-            AutoUpdater.Start("http://jwroby.imwork.net/AutoUpdaterTest.xml");
+            AutoUpdater.Start(AutoUpdaterUrl);
         }
         private void AutoUpdaterOnCheckForUpdateEvent(UpdateInfoEventArgs args)
         {
@@ -78,6 +78,28 @@ namespace ClientRun
                 MessageBox.Show(
                         @"更新出了点问题，网络无法到达更新服务器，请检查网络后进行重试.",
                         @"更新出错！", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private System.Timers.Timer timerUpdater;
+        private void cbAutoUpdater_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbAutoUpdater.Checked)
+            {
+                timerUpdater=new System.Timers.Timer
+                {
+                    Interval = 30 * 1000,
+                    SynchronizingObject = this
+                };
+                timerUpdater.Elapsed += delegate
+                {
+                    AutoUpdater.Start(AutoUpdaterUrl);
+                };
+                timerUpdater.Start();
+            }
+            else
+            {
+                timerUpdater.Stop();
+                timerUpdater = null;
             }
         }
     }
