@@ -21,7 +21,8 @@ namespace ClientRun
         {
             AutoUpdater.CheckForUpdateEvent += AutoUpdaterOnCheckForUpdateEvent;
         }
-        public string AutoUpdaterUrl = "";
+
+        public string AutoUpdaterUrl = "http://192.168.101.60:8088/AutoUpdaterTest.xml";
         private void button1_Click(object sender, EventArgs e)
         {
             AutoUpdater.Start(AutoUpdaterUrl);
@@ -101,6 +102,10 @@ namespace ClientRun
                 timerUpdater.Stop();
                 timerUpdater = null;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
         }
     }
 }

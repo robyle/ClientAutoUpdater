@@ -43,9 +43,9 @@
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(124, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(226, 19);
+            this.label1.Size = new System.Drawing.Size(182, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "软件当前版本号:V2.1.1";
+            this.label1.Text = "软件当前版本号:V2";
             // 
             // button1
             // 
@@ -60,7 +60,7 @@
             // cbAutoUpdater
             // 
             this.cbAutoUpdater.AutoSize = true;
-            this.cbAutoUpdater.Location = new System.Drawing.Point(179, 101);
+            this.cbAutoUpdater.Location = new System.Drawing.Point(181, 112);
             this.cbAutoUpdater.Name = "cbAutoUpdater";
             this.cbAutoUpdater.Size = new System.Drawing.Size(72, 16);
             this.cbAutoUpdater.TabIndex = 2;
@@ -70,6 +70,7 @@
             // 
             // rtbLog
             // 
+            this.rtbLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbLog.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.rtbLog.Location = new System.Drawing.Point(0, 159);
             this.rtbLog.Name = "rtbLog";
@@ -85,6 +86,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "查看更新";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MainWindow
             // 
